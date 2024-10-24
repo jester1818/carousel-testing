@@ -1,5 +1,10 @@
 
-// NA SELECTEREN ZIJN DE BOVENSTE 2 FOTO'S IN MOBILE FORMAT NIET MEER HETZELFDE FORMAT, 
+// VOOR EEN FRACTIE ZIE JE ALLE RANDEN BIJ HET SELECTEREN VAN DE AFBEELDING VOOR INZOOMEN
+// LOADING OPTIMALIZATIE / BLURREN VERSIE ALS EERSTE 
+// FOCUS MANAGEMENT TO CLOSE BUTTON UPON SELECTION
+// EVENT DELEGATION
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -16,19 +21,24 @@ let isZoomedIn = false; // Tracks if an image is zoomed in
 const images = [
     {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
     {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
+    {src : 'images/Spring-3.JPG', text : "A surprised little animal trying to find his nuts."},
+    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
+    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
+    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
+    {src : 'images/Spring-3.JPG', text : "A surprised little animal trying to find his nuts."},
+    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
+    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
+    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
+    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
+    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
+    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
+    {src : 'images/Spring-3.JPG', text : "A surprised little animal trying to find his nuts."},
+    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
     {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
     {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
     {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
     {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
-    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
-    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
-    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
-    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
-    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
-    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
-    {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
-    {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
-    {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},
+    {src : 'images/Spring-3.JPG', text : "A surprised little animal trying to find his nuts."},
     {src : 'images/Winter-1.JPG', text : "A beautiful winter scene with snow-covered trees."},
     {src : 'images/Winter-2.JPG', text : "A frozen lake reflecting the winter sky."},
     {src : 'images/Winter-3.JPG', text : "Snowfall in the mountains during sunset."},

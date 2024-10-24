@@ -12,17 +12,17 @@ body {
 
 .gallery-container {
     display: grid; 
-    width: 100vw;
-    max-width: 1200px;
-    max-height: 90vh;
-    margin: 10px auto;
-    padding: 0 10px;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 5px;
     justify-items: center;
     align-items: center;
-    overflow: visible; /* Prevent scrolling */
+    width: 100vw;
+    max-width: 1200px;
+    max-height: 90vh;
+    margin: 10px auto;
+    padding: 0 10px;
+    overflow: hidden; /* Prevent scrolling */
     touch-action: pan-y; /* Allow vertical scrolling, prevent horizontal scrolling */
 }
 
@@ -36,6 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .gallery-item img {
@@ -77,6 +78,31 @@ body {
     display: none;
   }
 
+/* Close Button */
+.gallery-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 10;
+    background: transparent;
+    color: #ccc;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.gallery-close-btn:hover {
+    color: #333; /* Change color on hover */
+}
+
+.gallery-item:not(.selected):hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 /* Navigation Buttons */
 .pagination-controls {
     height: 5vh;
@@ -90,9 +116,36 @@ body {
     transform: translateX(-50%);
 }
 
-.pagination-controls button {
-    padding: 5px 10px;
-    margin: 0 10px;
+.nav-button {
+    background-color: #ccc;
+    border: none;
+    font-size: 0.7em;
+    padding: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+    width: 15px;
+    margin: 0px -15px;
+}
+
+.nav-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-button:focus {
+    outline: none;
+    background-color: #ccc;
+    color: #333;
+}
+
+.nav-button:disabled {
+    opacity: 0;
+    cursor: default;
 }
 
 /* Pagination Dots Container */
@@ -119,34 +172,9 @@ body {
 
 .pagination-dot.active {
     background-color: #333;
+    height: 15px;
+    width: 15px;
 }
-
-
-/* Close Button */
-.gallery-close-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.gallery-close-btn:focus {
-    outline: 2px solid #fff;
-}
-
-.gallery-item:not(.selected):hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 
 /* Media Queries for Responsiveness */
 

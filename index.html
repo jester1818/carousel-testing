@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Gallery | Koldijks Kijk</title>
     <link rel="stylesheet" href="stylesheet.css"> 
 </head>
 <body>
 
-    <div class="gallery-container" aria-label="Image Gallery">
-        <!-- Images dynamically inserted-->
-    </div>
-
-    <div class="pagination-controls">
-        <button id="prev-button">Previous</button>
-        <div id="pagination-dots"></div>
-        <button id="next-button">Next</button>
-    </div>
-
-        <div class="gallery-close-btn hidden" aria-label="Close Gallery">
-            <p>Close</p>
+        <div class="gallery-container" aria-label="Image Gallery">
+            <!-- Images dynamically inserted-->
         </div>
 
+        <button class="gallery-close-btn hidden" aria-label="Close Gallery" title="Close Gallery">
+            &times;
+        </button> 
+
+        <div class="pagination-controls">
+            <button id="prev-button" class="nav-button prev-button" aria-label="Previous">&#10094;</button>
+            <div id="pagination-dots"></div>
+            <button id="next-button" class="nav-button next-button" aria-label="Next">&#10095;</button>
+        </div>
+        
+        
     <script src="script.js"></script>
 </body>
 </html>
