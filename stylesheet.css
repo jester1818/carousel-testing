@@ -64,7 +64,7 @@ body {
     text-align: center;
     opacity: 0; /* Start hidden */
     max-width: 90%;
-    transition: opacity 1s ease;
+    transition: opacity 0.7s ease;
     display: none;
     margin-top: 10px;
 }
@@ -81,20 +81,41 @@ body {
 /* Close Button */
 .gallery-close-btn {
     position: absolute;
-    top: 5px;
+    top: 10px;
     right: 10px;
-    z-index: 10;
-    background: transparent;
-    color: #ccc;
+    z-index: 100;
+    opacity: 0;
+    background-color: #ccc;
     border: none;
-    font-size: 24px;
+    padding: 2px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+    width: 15px;
+    cursor: default;
 }
 
 .gallery-close-btn:hover {
-    color: #333; /* Change color on hover */
+    background-color: #333;
 }
+
+.gallery-close-btn:hover svg line {
+    stroke: #fff; /* Arrow color on hover */
+}
+
+.gallery-close-btn svg {
+    width: 8px;
+    height: 8px;
+    stroke: #333; /* Initial arrow color */
+    transition: stroke 0.3s ease;
+}
+
+
+
 
 .gallery-item:not(.selected):hover {
     transform: scale(1.02);
@@ -119,7 +140,6 @@ body {
 .nav-button {
     background-color: #ccc;
     border: none;
-    font-size: 0.7em;
     padding: 2px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -132,15 +152,18 @@ body {
     margin: 0px -15px;
 }
 
+.nav-button svg path {
+    stroke: #333; /* Initial arrow color */
+    transition: stroke 0.3s ease;
+}
+
 .nav-button:hover {
     background-color: #333;
     color: #fff;
 }
 
-.nav-button:focus {
-    outline: none;
-    background-color: #ccc;
-    color: #333;
+.nav-button:hover svg path {
+    stroke: #fff; /* Arrow color on hover */
 }
 
 .nav-button:disabled {

@@ -1,10 +1,6 @@
 
-// VOOR EEN FRACTIE ZIE JE ALLE RANDEN BIJ HET SELECTEREN VAN DE AFBEELDING VOOR INZOOMEN
 // LOADING OPTIMALIZATIE / BLURREN VERSIE ALS EERSTE 
-// FOCUS MANAGEMENT TO CLOSE BUTTON UPON SELECTION
 // EVENT DELEGATION
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -254,6 +250,8 @@ displayImages();
 function resetGallery() {
     const galleryItems = document.querySelectorAll('.gallery-item');
 
+    if (isZoomedIn === false) return;
+
     galleryItems.forEach(imageItem => {
         const galleryImg = imageItem.querySelector('img');
         const textElement = imageItem.querySelector('.image-text');
@@ -280,7 +278,8 @@ function resetGallery() {
         galleryContainer.style.gridTemplateColumns = '';
         galleryContainer.style.maxWidth = '';
         paginationControls.classList.add('fade-in'); 
-        closeButton.classList.add('hidden');    
+        closeButton.style.opacity = '0';    
+        closeButton.style.cursor = 'default';
     }, fadeDuration);
 
     setTimeout(() => {
@@ -323,8 +322,6 @@ function attachImageClickListeners() {
                     setTimeout(() => {
                         otherItem.classList.add('fade-in')
                         otherItem.classList.add('selected');
-                        // galleryImg.style.objectFit = 'contain'; 
-                        // galleryImg.style.cursor = 'default';
 
                     }, fadeDuration); // Match fade duration       
                 }
@@ -341,7 +338,8 @@ function attachImageClickListeners() {
             imageItem.classList.remove('fade-out');
 
             // Show the close button
-            closeButton.classList.remove('hidden');
+            closeButton.style.opacity = '1';
+            closeButton.style.cursor ='pointer';
             }, fadeDuration);
               
         });
@@ -354,11 +352,10 @@ closeButton.addEventListener('click', resetGallery);
 
 // Add event listener for the esc button to reset
 document.addEventListener('keydown', function(event) {
-     if (event.key === 'Escape' || event.key === 'Esc') {
-        if (!closeButton.classList.contains('hidden')) {
-            resetGallery();
-        }
-     }
+    if (isZoomedIn === false) return;
+    if (event.key === 'Escape' || event.key === 'Esc') {
+        resetGallery();
+    }
 });
 
 });
